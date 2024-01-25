@@ -1,0 +1,167 @@
+Git Local
+
+pwd - ver ruta de usuario
+history - historial de comandos
+!23 - ejecutar de nevo el comando
+cd - cambiar de directorio
+cat archivo.txt  - ver los que contiene un archivo
+mkdir nombre carpeta - crear una carpeta
+rm vacio.txt - borrar cierto archivo
+rm --help - ayuda sobre el comando Eliminar
+git init - iniciar proyecto con init
+ls -la - mostrar achivos en directorio hasta los ocultos
+git config --list - nos muestra la configuracion general de git
+git config --list --show-origin - pedes ver donde estan las configuraciones guardadas
+git config --global - cambios a todos los usuarios globales
+git config --global user.name "Angel Burgara"  - cambiar configuracion global del usuario 
+git config --global user.email "aburgarac@gmail.com" - cambiar configuracion global del email
+git reset --hard: Deshace todo, absolutamente todo. Toda la información de los commits y del área de staging se elimina del historial.
+git reset --soft - Borra el historial y los registros de Git de commits anteriores, pero guarda los cambios en Staging para aplicar las últimas actualizaciones a un nuevo commit.
+git reset --mixed: Borra todo, exactamente todo. Toda la información de los commits y del área de staging se elimina del historial.
+git reset --HEAD es un comando que te permite revertir los cambios que ya habías preparado para subir, y moverlos de vuelta a tu proyecto. Con este comando puedes cancelar los cambios que ya habías agregado, para que puedas revisarlos, modificarlos o deshacerlos antes de confirmarlos con un commit.
+git log --stat muestra los commits realizados en el proyecto pero a nivel de que archivos se modificaron con el commit que se subio.
+git rm --cached: Elimina archivos del repositorio local y del área de staging, pero los mantiene en el disco duro. Deja de trackear el historial de cambios de estos archivos, por lo que quedan en estado untracked.
+git rm --force: Elimina los archivos de Git y del disco duro. Git guarda todo, por lo que podemos recuperar archivos eliminados si es necesario (empleando comandos avanzados).
+git diff 22c681ecdf69870995438607899737c5ab32749a | 3a93ba57c7dc81c8c08a31cc83033f29c4593a8e - ve la diferencia entre los dos commits
+git checkout 22c681ecdf69870995438607899737c5ab32749a historia.txt - regresa a la version de ese commit el archivo.
+git checkout 22c681ecdf69870995438607899737c5ab32749a master historia.txt - regresa a la version de ese commit ultimo registrado en los commmits el mas actual
+--letra q te puedes salir de mostrar datos en pantalla cuando se llena la pantalla y pone :
+
+git remoto
+
+git add . - subir a staging
+git commit -m "Mensaje" subes los cambios para que pase de untraker a traking
+git clone url -sirve para clonar un repositorio remoto de una url
+git push url - sube los cambios a una url (repositorio remoto) cuando realizaste un commit
+git fetch - baja cambios del repositorio remoto (url)
+git merge = git pull -mezcla los cambios del repositorio local y de mi repositorio remoto 
+
+
+git log --oneline - Te muestra el id commit y el título del commit.
+git log --decorate- Te muestra donde se encuentra el head point en el log.
+git log --stat - Explica el número de líneas que se cambiaron brevemente.
+git log -p- Explica el número de líneas que se cambiaron y te muestra que se cambió en el contenido.
+git shortlog - Indica que commits ha realizado un usuario, mostrando el usuario y el titulo de sus commits.
+git log --graph --oneline --decorate y
+git log --pretty=format:"%cn hizo un commit %h el dia %cd" - Muestra mensajes personalizados de los commits.
+git log -3 - Limitamos el número de commits.
+git log --after=“2018-1-2” ,
+git log --after=“today” y
+git log --after=“2018-1-2” --before=“today” - Commits para localizar por fechas.
+git log --author=“Name Author” - Commits realizados por autor que cumplan exactamente con el nombre.
+git log --grep=“INVIE” - Busca los commits que cumplan tal cual está escrito entre las comillas.
+git log --grep=“INVIE” –i- Busca los commits que cumplan sin importar mayúsculas o minúsculas.
+git log – index.html- Busca los commits en un archivo en específico.
+git log -S “Por contenido”- Buscar los commits con el contenido dentro del archivo.
+git log > log.txt - guardar los logs en un archivo txt
+
+git add y git commit = git commit am "mensaje a poner al commit" - se puede hacer con el siguiente comando siempre y cuando a los archivos cuando menos le hayamos realizado un add antes a los archivos.
+git branch nombre -creamos una rama, fijarse que desde donde se cree es de la rama master con git status o git show se puede observar
+git checkout nombre rama - para cambiar entre ramas creadas en el proyecto
+git merge rama -m -"Megere a dos ramas para fusionar las dos ramas"- fusionamos la rama de maser con otra rama y dejamos en master el commit mas actual del proyecto
+
+Genrar llaves pulbicas y privadas en GiHub
+
+ssh-keygen -t rsa -b 4096  -C "aburgarac@gmail.com" -comando generar una llave publica y privada par ligar github (-t rsa - es el tipo de hash
+que se seleciono, -b 4096 es la complejidad matematica a pornele a la llave, y -C es donde se defiene al correo que se usa en el ssh)
+
+eval $(ssh-agent -s) - es para ver si esta en el server de seguridad de windows y  verificar que tu llave este corriendo para usarla
+
+ssh-add ~/.ssh/id_rsa -agregar la llave publica al server ssh de windows
+
+
+git remote add origin ruta -se agrega un origen remoto
+git remote - te dice si estas conectado remotamente
+git remote -v - de dice de manera verbal el remoto al que estas conectado
+git branch -m main -es para cambiar el nombre de la rama master a main (estos se 
+realizo por los cambios que hizo github internos)
+git remote remove origin - comando para remover la ruta remota y poder asignar otra
+
+Nota: (Esto se realiza porque necesita usuario y pass en github para push) en gitHub se tiene que agregar una token para acceso a realizar modificaciones al repositorio y esto se logra asi:
+- dar click en settings -> developer settings -> personal access token -> token clasicc 
+-y ahi generamos el token con el tiempo que quieres que dure vigente y seleccionamos todas la opciones y le ponemos un nombre 
+y listo genera algo asi (video de ejemplo https://www.youtube.com/watch?v=ePCBuIQJAUc): 
+
+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
+
+este se lo ponemos al remoto asi : https://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@github.com/Alcochol/hyperblog.git
+
+para que ya no te pida validar acceso cada push en el serrvidor remoto.
+
+git push origin main - se realiza para idicarle al remoto que la rama principal 
+ya no es master ahora va a ser main.
+- nota si temarca esto :
+
+To https://github.com/Alcochol/hyperblog.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://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@github.com/Alcochol/hyperblog.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+entonces necesitamos hacer un git pull origin main para que baje los cambios del remoto
+
+
+arroja el siguiente resultado : 
+
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 911 bytes | 60.00 KiB/s, done.
+From https://github.com/Alcochol/hyperblog
+ * branch            main       -> FETCH_HEAD
+ * [new branch]      main       -> origin/main
+fatal: refusing to merge unrelated histories -- tenemos que fusionar lo que viene del remoto
+
+para fusionar y forzar aplicamos el siquiente comando :
+
+git pull origin main--allow-unrelated-histories
+
+si te pone como una edicion del mensaje de pull le das ESC -> SHIFFT y Z + Z y se sale de la edicion.
+
+manda este mensaje si se realizo el merge  :
+
+From https://github.com/Alcochol/hyperblog
+ * branch            main       -> FETCH_HEAD
+Merge made by the 'recursive' strategy.
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)
+ create mode 100644 README.md
+
+
+ahora si aplicamos git push origin main - se realiza para idicarle al remoto que la rama principal 
+ya no es master ahora va a ser main.
+
+y manda este resultado : 
+
+Enumerating objects: 54, done.
+Counting objects: 100% (54/54), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (44/44), done.
+Writing objects: 100% (53/53), 5.10 KiB | 653.00 KiB/s, done.
+Total 53 (delta 14), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (14/14), done.
+To https://github.com/Alcochol/hyperblog.git
+   089abef..da1d516  main -> main
+
+git log --all - te muestra todos los commits realizdos a travez del proyecto y se subieron a git
+git log --all --graph -te muestra todos los commits realizdos a travez del proyecto y se subieron a git de manera grafica
+git log --all --graph --decorate --oneline ---te muestra todos los commits realizdos a travez del proyecto 
+y se subieron a git de manera graficay compactado
+alias arbolito="git log --all --graph --decorate --oneline" -agregar un alias en linux al comando largo
+git tag -a v0.1 -m "Resultado de las primeras clases del curso" f00fc56 -agregando tags a una version del git que tengas
+git show-ref --tags -es la forma de saber a de talle que tags esta asignado a que version de git o hash
+Nota siempre que creemos un tg hay que subir mediante commit para que los vean los demas en la nuve
+git pull origin main -- hacemos primero una actualacion de la rama main del host e internet
+git push origin --tags -- luego subimos los tags creados
+git tag -te dice cuales tags tienes
+git tag -d nombretag -borra los tags que no deseamos medinte comandos
+git push origin :refs/tags/dormido -borra la referencia alla en el github de la nube.
+git show-branch -muestra las ramas que existen con sus historias
+git show-branch --all -muestra las ramas existentes mas detalladas
+gitk -es un comando que abre un programita que se instalo automaticamente cuando instalamos git en la pc y muestra de mejor forma 
+los commits realizados
+
