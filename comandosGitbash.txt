@@ -82,9 +82,9 @@ Nota: (Esto se realiza porque necesita usuario y pass en github para push) en gi
 -y ahi generamos el token con el tiempo que quieres que dure vigente y seleccionamos todas la opciones y le ponemos un nombre 
 y listo genera algo asi (video de ejemplo https://www.youtube.com/watch?v=ePCBuIQJAUc): 
 
-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
+ghp_7S7FlIDBnSvV3Z...
 
-este se lo ponemos al remoto asi : https://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@github.com/Alcochol/hyperblog.git
+este se lo ponemos al remoto asi : https://ghp_7S7FlIDBn....@github.com/Alcochol/hyperblog.git
 
 para que ya no te pida validar acceso cada push en el serrvidor remoto.
 
@@ -94,7 +94,7 @@ ya no es master ahora va a ser main.
 
 To https://github.com/Alcochol/hyperblog.git
  ! [rejected]        main -> main (fetch first)
-error: failed to push some refs to 'https://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@github.com/Alcochol/hyperblog.git'
+error: failed to push some refs to 'https://ghp_7S7....N@github.com/Alcochol/hyperblog.git'
 hint: Updates were rejected because the remote contains work that you do
 hint: not have locally. This is usually caused by another repository pushing
 hint: to the same ref. You may want to first integrate the remote changes
